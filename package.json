@@ -1,0 +1,110 @@
+{
+  "name": "vuejs_component_library_base",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Template for Vue component library development",
+  "authors": [
+    {
+      "name": "Steve R Lewis",
+      "email": "me@steve-lewis.uk",
+      "url": "https://steve-lewis.uk"
+    }
+  ],
+  "license": "CPAL-1.0",
+  "main": "index.html",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "eslintIgnore": [
+    "*.log",
+    "*.json",
+    ".eslintignore",
+    ".eslintrc.cjs",
+    ".env",
+    ".env_example.txt",
+    ".firebase",
+    ".firebaserc",
+    "cypress",
+    "/data",
+    "/development",
+    "/dist",
+    "extensions",
+    "firebase",
+    "functions",
+    "LICENSE",
+    "/node_modules",
+    "README.md",
+    "/public",
+    "src/firebase"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check build-only",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
+    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore.old",
+    "format": "prettier --write src/",
+    "fbase-emuexport": "firebase emulators:export data/firebase_emulator",
+    "fbase-emuimport": "firebase emulators:start --import data/firebase_emulator",
+    "fbase-emulators": "firebase emulators:start --import data/firebase_emulator --export-on-exit data/firebase_emulator",
+    "fbase-deploy": "firebase deploy"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.4"
+  },
+  "dependencies": {
+    "@unhead/vue": "^1.1.30",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.4",
+    "@vueuse/core": "^10.4.1",
+    "cors": "^2.8.5",
+    "firebase": "^10.1.0",
+    "gsap": "^3.12.2",
+    "nodemailer": "^6.9.4",
+    "pinia": "^2.1.6",
+    "pinia-plugin-persistedstate": "^3.1.0",
+    "ts-node": "^10.9.1",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4",
+    "vuelidate": "^0.7.7"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "@rushstack/eslint-patch": "^1.3.2",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "@tsconfig/node18": "^18.2.0",
+    "@types/jsdom": "^21.1.1",
+    "@types/node": "^18.17.5",
+    "@unhead/addons": "^1.1.33",
+    "@vitejs/plugin-vue": "^4.3.1",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "@vue/test-utils": "^2.4.1",
+    "@vue/tsconfig": "^0.4.0",
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.1",
+    "cypress": "^12.17.4",
+    "eslint": "^8.46.0",
+    "eslint-plugin-cypress": "^2.14.0",
+    "eslint-plugin-vue": "^9.16.1",
+    "jsdom": "^22.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.25",
+    "prettier": "^3.0.0",
+    "start-server-and-test": "^2.0.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "~5.1.6",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.2",
+    "vue-tsc": "^1.8.8"
+  }
+}
